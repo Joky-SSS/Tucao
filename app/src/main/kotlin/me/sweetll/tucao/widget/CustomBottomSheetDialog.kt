@@ -59,17 +59,17 @@ class CustomBottomSheetDialog: AppCompatDialog {
         super.setContentView(wrapInBottomSheet(layoutResID, null, null))
     }
 
-    override fun setContentView(view: View?) {
+    override fun setContentView(view: View) {
         super.setContentView(wrapInBottomSheet(0, view, null))
     }
 
-    override fun setContentView(view: View?, params: ViewGroup.LayoutParams?) {
+    override fun setContentView(view: View, params: ViewGroup.LayoutParams?) {
         super.setContentView(wrapInBottomSheet(0, view, params))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setLayout(
+        window?.setLayout(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
         )
     }

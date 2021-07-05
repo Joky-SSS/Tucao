@@ -52,7 +52,7 @@ class NetworkModule {
             .writeTimeout(20, TimeUnit.SECONDS)
             .cookieJar(cookieJar)
             .addInterceptor { chain ->
-                val url = chain.request().url()
+                val url = chain.request().url
                         .newBuilder()
                         .addQueryParameter("apikey", apiKey)
                         .addQueryParameter("type", "json")

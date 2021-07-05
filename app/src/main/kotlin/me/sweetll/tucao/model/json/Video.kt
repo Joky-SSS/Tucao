@@ -53,18 +53,18 @@ data class Video(val hid: String = "",
     override fun isExpanded(): Boolean = expanded
 
     constructor(source: Parcel) : this(
-            source.readString(),
-            source.readString(),
+            source.readString()!!,
+            source.readString()!!,
             source.readInt(),
             source.readInt(),
-            source.readString(),
-            source.readString(),
+            source.readString()!!,
+            source.readString()!!,
             source.readInt(),
-            source.readString(),
-            source.readString(),
-            source.readString(),
-            source.readString(),
-            source.readString(),
+            source.readString()!!,
+            source.readString()!!,
+            source.readString()!!,
+            source.readString()!!,
+            source.readString()!!,
             source.readInt(),
             source.readInt(),
             source.readLong(),
@@ -72,7 +72,7 @@ data class Video(val hid: String = "",
             1 == source.readInt(),
             1 == source.readInt()
     ) {
-        video = source.createTypedArrayList(Part.CREATOR)
+        video = source.createTypedArrayList(Part.CREATOR)!!.toMutableList().toMutableList()
     }
 
     override fun describeContents() = 0

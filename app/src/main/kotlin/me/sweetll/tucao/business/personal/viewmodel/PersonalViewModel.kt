@@ -18,6 +18,7 @@ import me.sweetll.tucao.extension.sanitizeHtml
 import me.sweetll.tucao.extension.toast
 import me.sweetll.tucao.model.other.User
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.RequestBody
 import org.greenrobot.eventbus.EventBus
 import org.jsoup.Jsoup
@@ -57,7 +58,7 @@ class PersonalViewModel(val activity: PersonalActivity, val fragment: PersonalFr
                     data ->
                     val file = File(image.compressPath)
                     val body = RequestBody.create(
-                            MediaType.parse("application/octet-stream"),
+                        "application/octet-stream".toMediaType(),
                             file
                     )
                     rawApiService.uploadAvatar(data, body)

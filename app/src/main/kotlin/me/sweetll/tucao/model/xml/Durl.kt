@@ -27,7 +27,7 @@ data class Durl(
         }
     }
 
-    constructor(source: Parcel) : this(source.readInt(), source.readLong(), source.readString(), source.readString(), source.readString(), source.readInt(), source.readLong(), source.readLong())
+    constructor(source: Parcel) : this(source.readInt(), source.readLong(), source.readString()!!, source.readString()!!, source.readString()!!, source.readInt(), source.readLong(), source.readLong())
 
     override fun describeContents() = 0
 

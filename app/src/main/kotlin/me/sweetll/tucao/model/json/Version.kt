@@ -21,11 +21,11 @@ data class Version(val status: Int,
     constructor(source: Parcel) : this(
     source.readInt(),
     source.readInt(),
-    source.readString(),
-    source.readString(),
-    source.readString(),
+    source.readString()!!,
+    source.readString()!!,
+    source.readString()!!,
     source.readLong(),
-    source.readString(),
+    source.readString()!!,
     source.readLong()
     )
 

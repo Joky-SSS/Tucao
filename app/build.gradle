@@ -1,11 +1,9 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion versions.compileSdk
-    buildToolsVersion versions.buildTools
     defaultConfig {
         applicationId 'me.sweetll.tucao'
         minSdkVersion 21
@@ -41,8 +39,8 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding true
     }
     packagingOptions {
         exclude 'META-INF/LICENSE'
@@ -70,11 +68,11 @@ kapt {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.3.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
         exclude group: 'com.google.code.findbugs'
     })
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13.2'
     /* DialogPlus */
     implementation project(':dialogplus')
     /* GSYVideoPlayer */
@@ -92,7 +90,7 @@ dependencies {
     implementation "androidx.legacy:legacy-support-v4:${versions.androidxLegacy}"
     implementation "androidx.appcompat:appcompat:${versions.androidx}"
     implementation "androidx.recyclerview:recyclerview:${versions.recyclerview}"
-    implementation "androidx.recyclerview:recyclerview-selection:${versions.recyclerview}"
+    implementation "androidx.recyclerview:recyclerview-selection:1.2.0-alpha01"
     implementation "androidx.cardview:cardview:${versions.cardview}"
     implementation "androidx.gridlayout:gridlayout:${versions.gridlayout}"
     implementation "androidx.constraintlayout:constraintlayout:${versions.constraintlayout}"
@@ -100,57 +98,57 @@ dependencies {
     implementation "androidx.annotation:annotation:${versions.annotation}"
     implementation "com.google.android.material:material:${versions.material}"
     /* Kotlin */
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
+//    implementation "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
     /* Anko */
     implementation "org.jetbrains.anko:anko-commons:${versions.anko}"
     /* RxJava2 */
-    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
     /* RxKotlin */
-    implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
     /* RxBinding */
-    implementation 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.2.0'
     /* RxLifecycle */
-    implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
-    implementation 'com.trello.rxlifecycle2:rxlifecycle-kotlin:2.2.1'
+    implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.2'
+    implementation 'com.trello.rxlifecycle2:rxlifecycle-kotlin:2.2.2'
     /* RxPermissions */
     implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5'
     /* Retrofit */
-    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-    implementation 'com.squareup.moshi:moshi:1.8.0'
-    implementation 'com.squareup.retrofit2:converter-moshi:2.5.0'
-    implementation('com.squareup.retrofit2:converter-simplexml:2.5.0') {
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.moshi:moshi:1.12.0'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+    implementation('com.squareup.retrofit2:converter-simplexml:2.9.0') {
         exclude module: 'stax'
         exclude module: 'stax-api'
         exclude module: 'xpp3'
     }
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
     implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
     /* Dagger2 */
-    implementation 'com.google.dagger:dagger:2.26'
-    implementation 'com.google.dagger:dagger-android:2.26'
-    implementation 'com.google.dagger:dagger-android-support:2.26'
-    kapt 'com.google.dagger:dagger-compiler:2.26'
-    kapt 'com.google.dagger:dagger-android-processor:2.26'
+    implementation 'com.google.dagger:dagger:2.37'
+    implementation 'com.google.dagger:dagger-android:2.37'
+    implementation 'com.google.dagger:dagger-android-support:2.37'
+    kapt 'com.google.dagger:dagger-compiler:2.37'
+    kapt 'com.google.dagger:dagger-android-processor:2.37'
     /* Glide */
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
-    implementation 'com.github.bumptech.glide:annotations:4.9.0'
-    kapt 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'com.github.bumptech.glide:annotations:4.12.0'
+    kapt 'com.github.bumptech.glide:compiler:4.12.0'
     /* RecyclerView Adapter */
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50'
     /* Jsoup */
-    implementation 'org.jsoup:jsoup:1.11.2'
+    implementation 'org.jsoup:jsoup:1.13.1'
     /* Crash */
     implementation 'me.drakeet.library:crashwoodpecker:2.1.1'
     /* Umeng */
-    implementation 'com.umeng.analytics:analytics:6.1.3'
+    implementation 'com.umeng.analytics:analytics:6.1.4'
     /* EventBus */
-    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'org.greenrobot:eventbus:3.2.0'
     /* Banner */
     implementation 'com.bigkoo:convenientbanner:2.0.5'
     /* About */
-    implementation 'com.github.medyo:android-about-page:1.2'
+    implementation 'com.github.medyo:android-about-page:1.2.4'
     /* Leak Canary */
 //    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.2'
 //    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.2'
